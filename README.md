@@ -37,6 +37,10 @@ for (let i = 0; i < colors.length; i++) {
 fs.writeFileSync('image.png', canvas.toBuffer('image/png'));
 ```
 
+### Output Preview
+
+![preview](https://raw.githubusercontent.com/archaeopteryx1/canvasscript/main/__test__/images/draw_rect.png)
+
 # Inspirations
 
 - [@napi-rs/canvas](https://github.com/brooooooklyn/canvas)
