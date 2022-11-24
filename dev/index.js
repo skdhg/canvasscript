@@ -1,13 +1,12 @@
-const { createCanvas } = require("../lib/Canvas");
+const { Transformer } = require("@napi-rs/image");
+const Canvas = require("../lib/index");
 
-const canvas = createCanvas(100, 100);
+const canvas = Canvas.createCanvas(512, 512);
 const ctx = canvas.getContext("2d");
 
-ctx.fillStyle = "#f2a5aa";
-ctx.fillRect(0, 0, 100, 100);
-
-ctx.strokeStyle = "#ff4444";
-ctx.strokeRect(0, 0, 100, 100);
-
+for (let i = 0; i < 8; i++) {
+    ctx.fillStyle = Canvas.getRandomColor();
+    ctx.fillRect(i * 64, 0, 64, canvas.height);
+}
 
 require("fs").writeFileSync(`${__dirname}/hello.png`, canvas.encodeSync("png"))

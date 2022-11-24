@@ -45,11 +45,7 @@ impl CanvasRenderingContext2D {
 
   #[napi(setter)]
   pub fn set_fill_style(&mut self, color: Option<String>) {
-    if color == None {
-      self.canvas_fill_style = "#000000".to_string();
-    } else {
-      self.canvas_fill_style = color.expect("need color");
-    }
+    self.canvas_fill_style = color.unwrap_or("#000000".to_string());
   }
 
   #[napi(getter)]
@@ -60,11 +56,7 @@ impl CanvasRenderingContext2D {
 
   #[napi(setter)]
   pub fn set_stroke_style(&mut self, color: Option<String>) {
-    if color == None {
-      self.canvas_stroke_style = "#000000".to_string();
-    } else {
-      self.canvas_stroke_style = color.expect("need color");
-    }
+    self.canvas_stroke_style = color.unwrap_or("#000000".to_string());
   }
 
   #[napi(getter)]

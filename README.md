@@ -13,24 +13,14 @@ $ npm install canvasscript
 # Example
 
 ```js
-const { createCanvas } = require('canvasscript');
+const { createCanvas, getRandomColor } = require('canvasscript');
 const fs = require('fs');
 
 const canvas = createCanvas(500, 300);
 const ctx = canvas.getContext('2d');
 
-const canvas = createCanvas(512, 512);
-const ctx = canvas.getContext("2d");
-
-const colors = [
-    'red', 'green',
-    'blue', 'orange',
-    'pink', 'cyan',
-    'brown', 'gold'
-];
-
-for (let i = 0; i < colors.length; i++) {
-    ctx.fillStyle = colors[i];
+for (let i = 0; i < 8; i++) {
+    ctx.fillStyle = getRandomColor();
     ctx.fillRect(i * 64, 0, 64, canvas.height);
 }
 
